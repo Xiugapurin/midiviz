@@ -50,8 +50,7 @@ Using MidiViz is straightforward. All you need is a MIDI file and a SoundFont (`
 
 ```python
 from IPython.display import display
-from midiviz.visualizer import MidiViz
-from midiviz import themes
+from midiviz import MidiViz, themes
 
 # Define your file paths
 MIDI_FILE_PATH = 'path/to/your/midi_file.mid'
