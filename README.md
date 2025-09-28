@@ -1,20 +1,20 @@
 # MidiViz: Interactive MIDI Visualization in Jupyter Notebooks
 
-**MidiViz** is a lightweight Python package designed to easily visualize and interact with MIDI files directly within a Jupyter Notebook or Google Colab environment.
+**MidiViz** is a lightweight Python package designed to easily visualize and interact with MIDI files directly within a **Jupyter Notebook** or **Google Colab** environment.
 
 It renders MIDI notes as a dynamic `waterfall` or a traditional `pianoroll`, synchronized with audio synthesized from a **SoundFont**. MidiViz is highly customizable, supporting multi-track color themes, detailed tooltips on hover, beat/measure gridlines, and other professional features.
 
 ## Demo
 
-Here is a demonstration of the waterfall mode using the OCEAN theme.
+Here is a demonstration of the waterfall mode using the `CLASSIC` theme.
 
-<!-- TODO: Embed a GIF demonstration here -->
+![](https://meee.com.tw/6VO8DkG.gif "Demo")
 
 ## Key Features
 
 - **Two Visualization Modes**: Supports `waterfall` and `pianoroll` modes.
 - **Multi-Track Coloring**: Automatically assigns distinct colors to different tracks in the MIDI file, making complex pieces easy to follow.
-- **Customizable Themes**: Comes with several professionally designed color themes (Classic, Ocean, Forest, etc.) and supports fully custom user-defined palettes.
+- **Customizable Themes**: Comes with several color themes and supports fully custom user-defined palettes.
 - **Interactive Player**: Includes a full playback controller with play/pause, a draggable seek bar, time display, and volume control.
 - **Note Info Tooltip**: Hover over any note on the canvas to see its detailed information (track name, timing, pitch name, velocity, etc.).
 - **Beat & Measure Gridlines**: Renders beat lines and numbered measure lines on the canvas to help understand the musical structure.
@@ -23,23 +23,30 @@ Here is a demonstration of the waterfall mode using the OCEAN theme.
 
 1. Install Package
    You can install MidiViz directly from PyPI:
-   `pip install midiviz`
+
+   ```bash
+   pip install midiviz
+   ```
 
 2. Install System Dependencies (FluidSynth)
    This package uses `midi2audio` for audio synthesis, which relies on a system-level synthesizer. **FluidSynth** is strongly recommended.
    - **macOS**:
-     `brew install fluidsynth`
+     ```bash
+     brew install fluidsynth
+     ```
+   - **Ubuntu / Debian**:
+     ```bash
+     sudo apt-get install fluidsynth
+     ```
+   - **Windows**:
+   1. Go to the [FluidSynth GitHub Releases page](https://github.com/FluidSynth/fluidsynth/releases).
+   2. Download the latest `.zip` archive that includes `win64` (or `win32`) in its name.
+   3. Extract the archive to a stable location (e.g., `C:\dev\fluidsynth`).
+   4. **Crucial Step**: Add the path to the `bin` directory inside the extracted folder (e.g., `C:\dev\fluidsynth\bin`) to your system's Environment Variables PATH.
 
-- **Ubuntu / Debian**:
-  `sudo apt-get install fluidsynth`
-- **Windows**:
-  1. Go to the [FluidSynth GitHub Releases page](https://github.com/FluidSynth/fluidsynth/releases).
-  2. Download the latest `.zip` archive that includes `win64` (or `win32`) in its name.
-  3. Extract the archive to a stable location (e.g., `C:\dev\fluidsynth`).
-  4. **Crucial Step**: Add the path to the `bin` directory inside the extracted folder (e.g., `C:\dev\fluidsynth\bin`) to your system's Environment Variables PATH.
+### Basic Usage
 
-3. Basic Usage
-   Using MidiViz is straightforward. All you need is a MIDI file and a SoundFont (`.sf2`) file.
+Using MidiViz is straightforward. All you need is a MIDI file and a SoundFont (`.sf2`) file.
 
 ```python
 from IPython.display import display
@@ -47,20 +54,16 @@ from midiviz.visualizer import MidiViz
 from midiviz import themes
 
 # Define your file paths
-
-SOUNDFONT_PATH = 'path/to/your/soundfont.sf2'
 MIDI_FILE_PATH = 'path/to/your/midi_file.mid'
+SOUNDFONT_PATH = 'path/to/your/soundfont.sf2'
 
 # 1. Create a MidiViz instance
-
 viz = MidiViz(midi_path=MIDI_FILE_PATH, soundfont_path=SOUNDFONT_PATH)
 
 # 2. Display the visualization (defaults to "pianoroll" mode and CLASSIC theme)
-
 display(viz.show())
 
 # 3. Try "waterfall" mode with a different theme
-
 display(viz.show(mode="waterfall", theme=themes.NIGHT))
 ```
 
