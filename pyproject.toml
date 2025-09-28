@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "midiviz"
-version = "1.1"
+version = "1.2"
 authors = [
     { name = "Xiugapurin", email = "jason32567810@gmail.com" },
 ]
