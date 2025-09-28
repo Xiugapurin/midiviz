@@ -1,0 +1,35 @@
+# ./pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "midiviz"
+version = "1.0"
+authors = [
+    { name = "Xiugapurin", email = "jason32567810@gmail.com" },
+]
+description = "An interactive MIDI visualization tool for Jupyter Notebooks."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Framework :: Jupyter",
+    "Topic :: Multimedia :: Sound/Audio :: MIDI",
+]
+
+dependencies = [
+    "pretty_midi",
+    "midi2audio",
+    "ipython",
+]
+
+[tool.setuptools.package-data]
+midiviz = ["static/main.js", "templates/*.html"]
+
+[project.urls]
+Homepage = "https://github.com/Xiugapurin/midiviz"
