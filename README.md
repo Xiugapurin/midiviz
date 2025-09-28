@@ -71,14 +71,19 @@ display(viz.show(mode="waterfall", theme=themes.NIGHT))
 You can deeply customize the visualization through the various parameters of the `show()` method.
 
 - `mode` (str):
-  Sets the visualization mode. - "pianoroll": (Default) The classic piano roll view. - "waterfall": The falling-note "Synthesia" style view.
+  Sets the visualization mode.
+
+  - `pianoroll` (Default): The classic piano roll view.
+  - `waterfall`: The falling-note "Synthesia" style view.
 
   ```python
   display(viz.show(mode="waterfall"))
   ```
 
 - `theme` (dict):
-  Selects a predefined color theme from the themes.py module. - Available themes: `CLASSIC`, `OCEAN`, `CUTE`, `HELL`, `FOREST`, `NIGHT`.
+  Selects a predefined color theme from the themes.py module.
+
+  - Available themes: `CLASSIC`, `OCEAN`, `CUTE`, `VOLCANO`, `FOREST`, `NIGHT`.
 
   ```python
   from midiviz import themes
